@@ -4,10 +4,9 @@ FROM python:3.12-rc-bullseye AS runner
 WORKDIR /src
 
 COPY pyproject.toml /src/pyproject.toml
-RUN pip install /src
 
 COPY . .
-
+RUN pip install -e .
 CMD kecal "${MODE}"
 
 FROM runner AS tester
