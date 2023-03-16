@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kecal"
+authors = [
+    {name = "Jaroslav Henner", email = "1187265+jarovo@users.noreply.github.com"},
+]
+description = "Network chat"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["chat"]
+license = {text = "GPL-3.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "pytest"
+]
+[project.scripts]
+kecal = "kecal:main"
+
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
