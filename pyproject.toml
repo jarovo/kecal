@@ -25,7 +25,8 @@ dev = [
     "pytest"
 ]
 [project.scripts]
-kecal = "kecal:main"
+kecal-server = "kecal.server:main"
+kecal-client = "kecal.cient:main"
 
 # ... other project metadata fields as specified in:
 #     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
