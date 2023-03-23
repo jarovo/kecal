@@ -1,5 +1,6 @@
+repos:
 - repo: git://github.com/pre-commit/pre-commit-hooks
-  sha: master  # Use the ref you want to point at
+  rev: v2.3.0
   hooks:
     - { id: check-case-conflict }
     - { id: check-merge-conflict }
@@ -9,3 +10,7 @@
     - { id: detect-private-key }
     - { id: end-of-file-fixer }
     - { id: trailing-whitespace }
+- repo: https://github.com/psf/black
+  rev: 22.10.0
+  hooks:
+    - { id: black } 
