@@ -32,7 +32,6 @@ jobs:
           push: true
           target: kecal-server
           tags: localhost:5000/kecal/kecal-server:latest
-          file: business/Dockerfile
       -
         name: Build and push kecal-client
         uses: docker/build-push-action@v4
