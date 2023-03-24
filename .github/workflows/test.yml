@@ -38,9 +38,10 @@ jobs:
           target: kecal-client
 
   tester:
+    needs: kecal
     runs-on: ubuntu-latest
     services:
-      redis:
+      kecal-server:
         image: kecal-server
         ports:
           - 8888:8888
