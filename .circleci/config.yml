@@ -84,11 +84,11 @@ jobs:
             - run: docker pull "$DOCKER_REGISTRY/$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION"
             - run: docker pull "$DOCKER_REGISTRY/$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION"
             - run:
-                  name: Tag the image as latest
-                  command: docker tag "$DOCKER_REGISTRY/kecal-server:$__BUILD_VERSION" "$DOCKER_REGISTRY/kecal-server:latest"
+                  name: Tag the kecal-server image as latest
+                  command: docker tag "$DOCKER_REGISTRY/$DOCKER_USERkecal-server:$__BUILD_VERSION" "$DOCKER_REGISTRY/$DOCKER_USER/kecal-server:latest"
             - run:
-                  name: Tag the image as latest
-                  command: docker tag "$DOCKER_REGISTRY/kecal-client:$__BUILD_VERSION" "$DOCKER_REGISTRY/kecal-client:latest"
+                  name: Tag the kecal-client image as latest
+                  command: docker tag "$DOCKER_REGISTRY/$DOCKER_USERkecal-client:$__BUILD_VERSION" "$DOCKER_REGISTRY/$DOCKER_USER/kecal-client:latest"
             - run: docker push "$DOCKER_REGISTRY/$DOCKER_USER/kecal-server:latest"
             - run: docker push "$DOCKER_REGISTRY/$DOCKER_USER/kecal-client:latest"
 
