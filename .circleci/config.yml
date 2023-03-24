@@ -6,7 +6,7 @@ orbs:
 jobs:
     prepare-dependencies:
         docker:
-            - image: ubuntu
+            - image: python:3.12-rc-bullseye
               auth:
                 username: jaryh3
                 password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
