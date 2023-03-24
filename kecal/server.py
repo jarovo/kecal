@@ -21,7 +21,11 @@ async def handle_echo(reader, writer):
 
 
 async def async_main():
-    args = kecal.make_argparser().parse_args()
+    parser = argparse.ArgumentParser(
+             prog='kecal-server',
+             description='Chatting server.',
+             epilog="Let get connected!")
+    args = kecal.make_argparser(parser).parse_args()
 
     server = await asyncio.start_server(
         handle_echo, args.server_ip, args.server_port)

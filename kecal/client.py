@@ -4,6 +4,10 @@ import asyncio
 import kecal
 
 async def tcp_echo_client(message) -> None:
+    parser = argparse.ArgumentParser(
+             prog='kecal-client',
+             description='Chatting client.',
+             epilog='Have a nice chat!')
     args = kecal.make_argparser().parse_args()
 
     reader, writer = await asyncio.open_connection(
