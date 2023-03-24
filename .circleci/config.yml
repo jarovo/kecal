@@ -60,6 +60,11 @@ jobs:
                   name: Install dev deps
                   command: |
                       pip install .[dev]
+            - run:
+                  name: pytest
+                  command: |
+                      pytest
+
 #            - store_artifacts:
 #                  path: test-results
 #            - store_test_results:
