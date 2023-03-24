@@ -40,15 +40,13 @@ jobs:
                   name: Setup __BUILD_VERSION envvar
                   command: |
                       echo 'export __BUILD_VERSION="$(cat version.txt)"' >> "$BASH_ENV"
-            - docker/check:
-                  registry: $DOCKER_REGISTRY
             # build the application image
-            - run: docker build --target kecal-server -t "$DOCKER_USER"/kecal-server:dev-$__BUILD_VERSION .
-            - run: docker build --target kecal-client -t "$DOCKER_USER"/kecal-client:dev-$__BUILD_VERSION .
+            - run: docker build --target kecal-server -t "$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION" .
+            - run: docker build --target kecal-client -t "$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION" .
 
             # deploy the image
-            - run: docker push "$DOCKER_USER"/kecal-server:dev-$__BUILD_VERSION
-            - run: docker push "$DOCKER_USER"/kecal-client:dev-$__BUILD_VERSION
+            - run: docker push "$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION"
+            - run: docker push "$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION"
 
 
     test:
