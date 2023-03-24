@@ -45,8 +45,8 @@ jobs:
             - run: docker build --target kecal-client -t "$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION" .
 
             # deploy the image
-            - run: docker push "$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION"
-            - run: docker push "$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION"
+            - run: docker push "$DOCKER_REGISTRY/$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION"
+            - run: docker push "$DOCKER_REGISTRY/$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION"
 
 
     test:
@@ -81,13 +81,13 @@ jobs:
                   command: |
                       echo 'export __BUILD_VERSION="$(cat version.txt)"' >> "$BASH_ENV"
             # deploy the image
-            - run: docker pull "$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION"
-            - run: docker pull "$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION"
+            - run: docker pull "$DOCKER_REGISTRY/$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION"
+            - run: docker pull "$DOCKER_REGISTRY/$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION"
             - run:
                   name: Tag the image as latest
                   command: docker tag $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:$__BUILD_VERSION $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:latest
-            - run: docker push "$DOCKER_USER/kecal-server:latest"
-            - run: docker push "$DOCKER_USER/kecal-client:latest"
+            - run: docker push "$DOCKER_REGISTRY/$DOCKER_USER/kecal-server:latest"
+            - run: docker push "$DOCKER_REGISTRY/$DOCKER_USER/kecal-client:latest"
 
 workflows:
     build-test-deploy:
