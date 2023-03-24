@@ -22,6 +22,7 @@ jobs:
                   root: .
                   paths:
                       - .
+                  
     build-docker-image:
         machine:
             # The image uses the current tag, which always points to the most recent
@@ -98,6 +99,8 @@ workflows:
             - prepare-dependencies
             - build-docker-image:
                   context: docker-hub
+                  requires:
+                      - prepare-dependencies
             - test:
                   requires:
                       - prepare-dependencies
