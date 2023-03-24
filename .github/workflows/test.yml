@@ -26,7 +26,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: false
           tags: jaryH3/kecal-server:latest
-          target: user/kecal-server
+          target: kecal-server
       -
         name: Build and push kecal-client
         uses: docker/build-push-action@v4
@@ -35,7 +35,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: false
           tags: jaryH3/kecal-client:latest
-          target: user/kecal-client
+          target: kecal-client
 
   tester:
     runs-on: ubuntu-latest
@@ -52,4 +52,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: no
-          tags: user/kecal-tester:latest
+          tags: jaryH3/kecal-tester:latest
