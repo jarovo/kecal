@@ -39,11 +39,21 @@ jobs:
             - docker/check:
                   registry: $DOCKER_REGISTRY
             - docker/build:
-                  image: $DOCKER_IMAGE_NAME
+                  image: kecal-server
                   tag: $__BUILD_VERSION
                   registry: $DOCKER_REGISTRY
+                  target: kecal-server
             - docker/push:
-                  image: $DOCKER_IMAGE_NAME
+                  image: kecal-server
+                  tag: $__BUILD_VERSION
+                  registry: $DOCKER_REGISTRY
+            - docker/build:
+                  image: kecal-client
+                  tag: $__BUILD_VERSION
+                  registry: $DOCKER_REGISTRY
+                  target: kecal-server
+            - docker/push:
+                  image: kecal-client
                   tag: $__BUILD_VERSION
                   registry: $DOCKER_REGISTRY
 
