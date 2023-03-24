@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       kecal-server:
-        image: kecal-server
+        image: localhost/kecal-server
         ports:
           - 8888:8888
     steps:
