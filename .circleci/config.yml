@@ -93,7 +93,8 @@ workflows:
             - build-docker-image:
                   context: docker-hub
             - test:
-                  prepare-dependencies
+                  requires:
+                      - prepare-dependencies
             - deploy-docker-image:
                   context: docker-hub
                   requires:
