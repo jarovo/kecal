@@ -8,8 +8,8 @@ jobs:
         docker:
             - image: python:3.12-rc-bullseye
               auth:
-                username: jaryh3
-                password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+                username: $DOCKER_USER
+                password: $DOCKER_PASSWORD  # context / project UI env-var reference
         steps:
             - checkout
             - run:
