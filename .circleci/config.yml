@@ -50,10 +50,7 @@ jobs:
     test:
         docker:
             - image: python:3.12-rc-bullseye
-              auth:
-                username: jaryh3
-                password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-        parallelism: 2
+        parallelism: 1
         steps:
             - attach_workspace:
                   at: .
