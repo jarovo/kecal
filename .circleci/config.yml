@@ -90,6 +90,7 @@ jobs:
 workflows:
     build-test-deploy:
         jobs:
+            - prepare-dependencies
             - build-docker-image:
                   context: docker-hub
             - test:
