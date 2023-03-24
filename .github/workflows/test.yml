@@ -7,6 +7,11 @@ on:
 
 jobs:
   kecal:
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
     runs-on: ubuntu-latest
     steps:
       -
@@ -25,8 +30,10 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: jaryh3/kecal-server:dev
           target: kecal-server
+          tags: localhost:5000/kecal/kecal-server:latest
+          context: business
+          file: business/Dockerfile
       -
         name: Build and push kecal-client
         uses: docker/build-push-action@v4
@@ -34,15 +41,15 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: jaryh3/kecal-client:dev
+          tags: localhost:5000/kecal-client:latest
           target: kecal-client
 
   tester:
-    needs: kecal
+    needs: [kecal, local-registry]
     runs-on: ubuntu-latest
     services:
       kecal-server:
-        image: jaryh3/kecal-server:dev
+        image: localhost:5000/kecal-server:latest
         ports:
           - 8888:8888
     steps:
