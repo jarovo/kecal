@@ -22,11 +22,12 @@ dynamic = ["version"]
 [project.optional-dependencies]
 dev = [
     "flake8",
-    "pytest"
+    "pytest",
+    "pytest-asyncio"
 ]
 [project.scripts]
 kecal-server = "kecal.server:main"
-kecal-client = "kecal.cient:main"
+kecal-client = "kecal.client:main"
 
 # ... other project metadata fields as specified in:
 #     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
