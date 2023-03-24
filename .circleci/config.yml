@@ -6,9 +6,9 @@ orbs:
 jobs:
     prepare-dependencies:
         docker:
-            - image: node:current-alpine
+            - image: ubuntu-2004:current
               auth:
-                username: mydockerhub-user
+                username: jaryh3
                 password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         steps:
             - checkout
