@@ -44,7 +44,7 @@ jobs:
           target: kecal-client
 
   tester:
-    needs: [kecal, local-registry]
+    needs: kecal
     runs-on: ubuntu-latest
     services:
       kecal-server:
