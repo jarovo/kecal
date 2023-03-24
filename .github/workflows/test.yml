@@ -24,8 +24,8 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          push: false
-          tags: jaryH3/kecal-server:dev
+          push: true
+          tags: jaryh3/kecal-server:dev
           target: kecal-server
       -
         name: Build and push kecal-client
@@ -33,8 +33,8 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          push: false
-          tags: jaryH3/kecal-client:dev
+          push: true
+          tags: jaryh3/kecal-client:dev
           target: kecal-client
 
   tester:
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       kecal-server:
-        image: jaryH3/kecal-server:dev
+        image: jaryh3/kecal-server:dev
         ports:
           - 8888:8888
     steps:
