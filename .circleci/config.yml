@@ -80,7 +80,8 @@ jobs:
                   name: Setup __BUILD_VERSION envvar
                   command: |
                       echo 'export __BUILD_VERSION="$(cat version.txt)"' >> "$BASH_ENV"
-            # deploy the image
+            - run: |
+                  echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USER" --password-stdin
             - run: docker pull "$DOCKER_REGISTRY/$DOCKER_USER/kecal-server:dev-$__BUILD_VERSION"
             - run: docker pull "$DOCKER_REGISTRY/$DOCKER_USER/kecal-client:dev-$__BUILD_VERSION"
             - run:
