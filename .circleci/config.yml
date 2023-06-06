@@ -22,7 +22,7 @@ jobs:
                   root: .
                   paths:
                       - .
-                  
+
     build-docker-image:
         machine:
             # The image uses the current tag, which always points to the most recent
